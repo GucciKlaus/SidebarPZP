@@ -7,7 +7,10 @@
     padding: 0;
 }
 
-
+html
+{
+    overflow: hidden;
+}
 a {
     text-decoration: none !important;
 }
@@ -22,11 +25,28 @@ h1 {
 }
 
 body {
+    overflow: hidden;
     font-family: 'Poppins', sans-serif;
 }
 
 .wrapper {
     display: flex;
+    height: 100%;
+    
+}
+
+#sidebar {
+    margin-bottom: 2.5%;
+    margin-top: 2.5%;
+    width: 70px;
+    min-width: 70px;
+    z-index: 1000;
+    transition: all .25s ease-in-out;
+    background-color: #A02838;
+    display: flex;
+    flex-direction: column;
+
+   
 }
 
 .main {
@@ -35,19 +55,10 @@ body {
     overflow: hidden;
     transition: all 0.35s ease-in-out;
     background-color: #fafbfe;
+    display: flex; /* Damit die Sidebar die gesamte verfügbare Höhe nutzt */
 }
 
-#sidebar {
-    width: 70px;
-    min-width: 70px;
-    z-index: 1000;
-    transition: all .25s ease-in-out;
-    background-color: #A02838;
-    display: flex;
-    flex-direction: column;
-    height: 90vh; /* Höhe auf 90% des Bildschirms setzen */
-    margin: 5% 0; /* 5% oben und unten freilassen */
-}
+
 
 #sidebar.expand {
     width: 260px;
@@ -82,8 +93,8 @@ body {
 }
 
 .sidebar-nav {
+    flex-grow: 1; /* Die Sidebar streckt sich über den verfügbaren Platz */
     padding: 2rem 0;
-    flex: 1 1 auto;
 }
 
 a.sidebar-link {
